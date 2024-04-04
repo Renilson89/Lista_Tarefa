@@ -32,6 +32,12 @@ class TarefaDAO(context: Context): ITarefaDAO {
     }
 
     override fun listar(): List<Tarefa> {
-        TODO("Not yet implemented")
+        val listaTarefas = mutableListOf<Tarefa>()
+        val sql = "SELECT ${DatabaseHelper.COLUNA_ID_TAREFAS}, " +
+                "${DatabaseHelper.COLUNA_DESCRICAO}, strftime('%d/%m/%Y %H:%M', " +
+                "${DatabaseHelper.COLUNA_DATA_CADASTRO} ) " +
+                "FROM ${DatabaseHelper.NOME_TABELAS_TAREFAS}"
+
+        return listaTarefas
     }
 }
